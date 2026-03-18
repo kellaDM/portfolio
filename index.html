@@ -738,21 +738,21 @@ font-size:14px;
 opacity:0.7;
 }
 
-/* Mobile Responsive - Corrected Hero & Header */
+/* Mobile Responsive - Corrected Header & Hero */
 @media (max-width: 768px) {
 
   /* Header */
   .header .container {
-    flex-direction: column;
+    flex-direction: row;       /* Keep logo and nav in one line */
+    justify-content: space-between;
     align-items: center;
     padding: 15px 20px;
     gap: 10px;
   }
 
   .nav ul {
-    flex-direction: column;
-    gap: 10px;
-    text-align: center;
+    flex-direction: row;       /* Keep nav links in one row */
+    gap: 15px;
   }
 
   /* Hero Section */
@@ -771,7 +771,7 @@ opacity:0.7;
     align-items: center;
     justify-content: center;
     margin-top: 30px;
-    position: static !important; /* override absolute if any */
+    position: static !important;
   }
 
   .left-content, .right-content {
@@ -799,11 +799,6 @@ opacity:0.7;
     margin-top: -40px;
   }
 
-  .marketer {
-    margin: 10px auto !important;
-  }
-
-  /* Adjust quote */
   .quote-icon {
     font-size: 40px;
   }
@@ -812,6 +807,11 @@ opacity:0.7;
     font-size: 16px;
   }
 
+  /* Hide hero tags on mobile */
+  .left-content .tag,
+  .right-content .tag {
+    display: none;
+  }
 }
 
   /* About Section */
