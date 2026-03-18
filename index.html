@@ -738,12 +738,22 @@ font-size:14px;
 opacity:0.7;
 }
 
-/* Mobile Responsive - Corrected Header & Hero */
+/* Mobile Responsive - Updated & Fixed */
 @media (max-width: 768px) {
+
+  /* Prevent horizontal scrolling */
+  body, html {
+    overflow-x: hidden;
+  }
+
+  img, iframe {
+    max-width: 100%;
+    height: auto;
+  }
 
   /* Header */
   .header .container {
-    flex-direction: row;       /* Keep logo and nav in one line */
+    flex-direction: row;       /* Logo + nav in one line */
     justify-content: space-between;
     align-items: center;
     padding: 15px 20px;
@@ -751,18 +761,21 @@ opacity:0.7;
   }
 
   .nav ul {
-    flex-direction: row;       /* Keep nav links in one row */
+    flex-direction: row;       /* Nav links in one row */
     gap: 15px;
+    flex-wrap: wrap;
   }
 
   /* Hero Section */
-  .hero-top h2, .hero-top h1 {
-    font-size: 20px;
+  .hero-top h1 {
+    font-size: 36px;
     line-height: 1.2;
+    text-align: center;
   }
 
-  .title {
-    font-size: 50px;
+  .hero-top h2 {
+    font-size: 18px;
+    text-align: center;
   }
 
   .hero-content {
@@ -780,23 +793,26 @@ opacity:0.7;
     margin: 10px 0 !important;
   }
 
-  .center-circle {
-    position: relative !important;
-    margin: 0 auto 0px auto; 
-    transform: none !important;
+  /* Hide hero tags/buttons on mobile */
+  .left-content .tag,
+  .right-content .tag {
+    display: none;
   }
 
-  .circle {
+  .center-circle {
     width: 220px !important;
     height: 110px !important;
     border-radius: 110px 110px 0 0 !important;
+    margin: 0 auto;
+    position: relative !important;
+    transform: none !important;
   }
 
   .profile-img {
     width: 160px !important;
     position: relative !important;
     bottom: 0 !important;
-    margin-top: -40px;
+    margin-top: 0px;
   }
 
   .quote-icon {
@@ -806,13 +822,6 @@ opacity:0.7;
   .quote p {
     font-size: 16px;
   }
-
-  /* Hide hero tags on mobile */
-  .left-content .tag,
-  .right-content .tag {
-    display: none;
-  }
-}
 
   /* About Section */
   .about-container {
@@ -834,11 +843,13 @@ opacity:0.7;
   /* Education Section */
   .education-cards {
     flex-direction: column;
+    gap: 20px;
   }
 
   /* Work Section */
   .work-container {
     flex-direction: column;
+    gap: 20px;
   }
 
   .work-item {
@@ -854,6 +865,7 @@ opacity:0.7;
   /* Projects Section */
   .project-container {
     flex-direction: column;
+    gap: 20px;
   }
 
   /* Social Section */
