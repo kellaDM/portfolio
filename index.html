@@ -85,6 +85,11 @@ margin-bottom:15px;
 .hero h2{
 font-size:22px;
 font-weight:700;
+/* ADD THIS 👇 */
+opacity:0;
+transform:translateY(40px);
+animation:fadeUp 1s ease forwards;
+animation-delay:0.5s;
 }
 
 .name{
@@ -98,6 +103,17 @@ font-size:80px;
 font-weight:900;
 margin-top:20px;
 letter-spacing:3px;
+opacity:0;
+transform:translateY(40px);
+animation:fadeUp 1s ease forwards;
+animation-delay:1s;
+}
+  
+@keyframes fadeUp{
+to{
+opacity:1;
+transform:translateY(0);
+}
 }
 
 
