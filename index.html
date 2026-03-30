@@ -3,1523 +3,1441 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Digital Marketing Portfolio</title>
+<title>Digital Marketing Portfolio – Kella Venkatesh</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
 <style>
-/* Reset */
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial, Helvetica, sans-serif;
-}
-/* Global Container */
-.container{
-max-width:1200px;
-margin:auto;
-padding:0 40px;
-}
-/* Header */
-.header{
-background:black;
-color:white;
-}
-.header .container{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:10px 80px;
+
+/* ─── CSS Variables ─────────────────────────────────────── */
+:root {
+  --white:   #ffffff;
+  --off-white: #fafaf8;
+  --cream:   #fff8ee;
+  --yellow:  #ffa500;
+  --yellow-light: #ffbe4d;
+  --yellow-pale: #fff3d6;
+  --yellow-deep: #e6940a;
+  --black:   #0a0a0a;
+  --black-soft: #1a1a1a;
+  --gray-100: #f4f4f0;
+  --gray-200: #e8e8e2;
+  --gray-400: #aaaaaa;
+  --gray-600: #555555;
+
+  --font-display: 'Bebas Neue', sans-serif;
+  --font-body:    'DM Sans', sans-serif;
+  --font-mono:    'Space Mono', monospace;
+
+  --radius-sm:  8px;
+  --radius-md:  16px;
+  --radius-lg:  28px;
+  --radius-xl:  48px;
+  --radius-full: 999px;
+
+  --shadow-sm:  0 2px 12px rgba(0,0,0,0.07);
+  --shadow-md:  0 8px 32px rgba(0,0,0,0.10);
+  --shadow-lg:  0 20px 60px rgba(0,0,0,0.13);
+  --shadow-yellow: 0 8px 32px rgba(255,165,0,0.25);
+
+  --transition: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.logo img{
-height:45px;
-width:auto;
-display:block;
+/* ─── Reset ─────────────────────────────────────────────── */
+*, *::before, *::after {
+  margin: 0; padding: 0;
+  box-sizing: border-box;
+}
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-body);
+  background: var(--white);
+  color: var(--black);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+img, iframe { max-width: 100%; display: block; }
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+
+/* ─── Utility ────────────────────────────────────────────── */
+.container {
+  max-width: 1220px;
+  margin: 0 auto;
+  padding: 0 48px;
+}
+.section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--yellow-deep);
+  margin-bottom: 16px;
+}
+.section-label::before {
+  content: '';
+  display: block;
+  width: 24px; height: 2px;
+  background: var(--yellow);
 }
 
-.nav ul{
-display:flex;
-list-style:none;
-gap:50px;
+/* ─── Header ─────────────────────────────────────────────── */
+.header {
+  position: sticky;
+  top: 0; z-index: 100;
+  background: var(--black);
+  transition: box-shadow var(--transition);
+}
+.header.scrolled {
+  box-shadow: 0 4px 30px rgba(0,0,0,0.4);
+}
+.header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 14px;
+  padding-bottom: 14px;
+}
+.logo img {
+  height: 42px;
+  width: auto;
+  border-radius: 6px;
+  transition: opacity var(--transition);
+}
+.logo img:hover { opacity: 0.85; }
+.nav ul {
+  display: flex;
+  gap: 40px;
+}
+.nav a {
+  color: var(--white);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  position: relative;
+  padding-bottom: 4px;
+}
+.nav a::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 0; height: 2px;
+  background: var(--yellow);
+  transition: width var(--transition);
+}
+.nav a:hover::after { width: 100%; }
+.nav a:hover { color: var(--yellow-light); }
+
+/* ─── Hero ───────────────────────────────────────────────── */
+.hero {
+  background: var(--white);
+  padding: 100px 0 0;
+  position: relative;
+  overflow: hidden;
+}
+/* decorative grid */
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(var(--gray-200) 1px, transparent 1px),
+    linear-gradient(90deg, var(--gray-200) 1px, transparent 1px);
+  background-size: 48px 48px;
+  opacity: 0.35;
+  pointer-events: none;
 }
 
-.nav a{
-color:white;
-text-decoration:none;
-font-size:18px;
+.hero-top { text-align: center; position: relative; }
+
+.hello-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 2px solid var(--black);
+  padding: 8px 28px;
+  border-radius: var(--radius-full);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  background: var(--white);
+  cursor: default;
+  margin-bottom: 20px;
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition), box-shadow var(--transition);
 }
-/* Hero Section */
-.hero{
-background:#ffffff;
-padding:80px 0 50px 0;
-text-align:center;
-position:relative;
+.hello-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
 }
-
-/* Hello Button */
-
-.hello-btn{
-border:2px solid black;
-padding:8px 30px;
-border-radius:25px;
-font-size:15px;
-background:white;
-display:inline-block;
-margin-bottom:15px;
+.hello-btn::before {
+  content: '';
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: #22c55e;
+  animation: blink 2s ease infinite;
 }
-
-/* Name */
-
-.hero h2{
-font-size:22px;
-font-weight:700;
-/* ADD THIS 👇 */
-opacity:0;
-transform:translateY(40px);
-animation:fadeUp 1s ease forwards;
-animation-delay:0.5s;
+@keyframes blink {
+  0%,100% { opacity: 1; }
+  50%      { opacity: 0.3; }
 }
 
-.name{
-color:#ff7a00;
+.hero h2 {
+  font-family: var(--font-body);
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: var(--gray-600);
+  margin-bottom: 16px;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeUp 0.9s ease forwards 0.3s;
+}
+.name { color: var(--yellow); font-weight: 700; }
+
+.title {
+  font-family: var(--font-display);
+  font-size: 110px;
+  line-height: 0.92;
+  letter-spacing: 4px;
+  color: var(--black);
+  opacity: 0;
+  transform: translateY(40px);
+  animation: fadeUp 1s ease forwards 0.6s;
 }
 
-/* Big Title */
-
-.title{
-font-size:80px;
-font-weight:900;
-margin-top:20px;
-letter-spacing:3px;
-opacity:0;
-transform:translateY(40px);
-animation:fadeUp 1s ease forwards;
-animation-delay:1s;
-}
-  
-@keyframes fadeUp{
-to{
-opacity:1;
-transform:translateY(0);
-}
-}
-/* Hero Content Layout */
-
-.hero-content{
-display:flex;
-justify-content:space-between;
-align-items:flex-end;
-margin-top:80px;
-}
-/* Left Quote */
-
-.left-content{
-width:250px;
-text-align:left;
+@keyframes fadeUp {
+  to { opacity: 1; transform: translateY(0); }
 }
 
-.quote-icon{
-font-size:60px;
+/* Hero Content Area */
+.hero-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-top: 70px;
+  position: relative;
 }
 
-.quote p{
-font-size:18px;
-line-height:1.6;
+/* Left */
+.left-content { width: 240px; text-align: left; padding-bottom: 40px; }
+.quote-icon {
+  font-family: Georgia, serif;
+  font-size: 72px;
+  line-height: 1;
+  color: var(--yellow);
+  display: block;
+  margin-bottom: 6px;
+}
+.quote p {
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--gray-600);
+  font-style: italic;
 }
 
 /* Circle */
-
-.center-circle{
-position:absolute;
-bottom:0;
-left:50%;
-transform:translateX(-50%);
+.center-circle {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.circle {
+  width: 440px;
+  height: 220px;
+  background: linear-gradient(160deg, var(--yellow-light) 0%, var(--yellow) 60%, var(--yellow-deep) 100%);
+  border-radius: 220px 220px 0 0;
+  box-shadow: 0 -8px 40px rgba(255,165,0,0.35);
+  transition: transform 0.6s ease;
+}
+.center-circle:hover .circle {
+  transform: scaleX(1.03);
 }
 
-.circle{
-width:420px;
-height:200px;
-background:#ffa500;
-border-radius:210px 210px 0 0;
-}
 /* Tags */
-
-.tag{
-background:black;
-color:white;
-border:none;
-padding:12px 28px;
-border-radius:25px;
-font-size:16px;
-margin:10px;
+.tag {
+  display: inline-block;
+  background: var(--black);
+  color: var(--white);
+  border: none;
+  padding: 11px 26px;
+  border-radius: var(--radius-full);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  cursor: default;
+  transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+  margin: 8px;
+}
+.tag:hover {
+  background: var(--yellow);
+  color: var(--black);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-yellow);
 }
 
-.marketer{
-margin-left:200px;
-margin-top:-40px;
+.marketer { margin-left: 180px; margin-top: -30px; }
+
+/* Right */
+.right-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  padding-bottom: 40px;
 }
-/* Right Buttons */
+.ads  { margin-left: -100px; }
+.seo  { margin-left: -40px; }
 
-.right-content{
-display:flex;
-flex-direction:column;
-align-items:flex-start;
-gap:20px;
+/* ─── Skills Marquee ─────────────────────────────────────── */
+.skills-marquee {
+  background: var(--black);
+  overflow: hidden;
+  padding: 18px 0;
+  border-top: 3px solid var(--yellow);
+  border-bottom: 3px solid var(--yellow);
+  margin-top: 0;
 }
-
-.ads{
-margin-left:-120px;
+.marquee-inner {
+  display: flex;
+  width: max-content;
+  animation: marquee 18s linear infinite;
 }
-
-.seo{
-margin-left:-40px;
+.marquee-inner:hover { animation-play-state: paused; }
+.skills-track {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
 }
-/* About Section */
-
-.about-section{
-background:#ffffff;
-padding:0px 0;
+.skills-track span {
+  color: var(--white);
+  font-family: var(--font-display);
+  font-size: 32px;
+  letter-spacing: 0.08em;
+  padding: 0 48px;
 }
-/* Skills Marquee */
-
-.skills-marquee{
-background:black;
-overflow:hidden;
-white-space:nowrap;
-padding:15px 0;
-margin-top:-5px;
+.skills-track span.dot {
+  color: var(--yellow);
+  font-size: 20px;
+  padding: 0 8px;
 }
-
-.skills-track{
-display:inline-block;
-animation:scrollSkills 15s linear infinite;
-}
-
-.skills-track span{
-color:white;
-font-size:40px;
-font-weight:900;
-margin-right:120px;
-}
-
-@keyframes scrollSkills{
-
-0%{
-transform:translateX(100%);
+@keyframes marquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
 
-100%{
-transform:translateX(-100%);
+/* ─── About Section ──────────────────────────────────────── */
+.about-section { background: var(--white); }
+.about-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 80px;
+  padding: 100px 0;
+}
+.about-text { width: 52%; }
+.about-text h1 {
+  font-family: var(--font-display);
+  font-size: 64px;
+  letter-spacing: 2px;
+  margin-bottom: 28px;
+  position: relative;
+  display: inline-block;
+}
+.about-text h1::after {
+  content: '';
+  position: absolute;
+  bottom: -8px; left: 0;
+  width: 60px; height: 4px;
+  background: var(--yellow);
+  border-radius: 2px;
+  transition: width 0.5s ease;
+}
+.about-text:hover h1::after { width: 100%; }
+.about-text p {
+  font-size: 18px;
+  line-height: 1.8;
+  color: var(--gray-600);
+  margin-bottom: 20px;
 }
 
+.about-image { width: 40%; display: flex; justify-content: center; }
+.image-circle {
+  width: 360px; height: 360px;
+  border-radius: 50%;
+  border: 6px solid var(--yellow);
+  overflow: hidden;
+  box-shadow: 0 0 0 12px var(--yellow-pale), var(--shadow-lg);
+  transition: box-shadow var(--transition), transform var(--transition);
 }
-/* About Layout */
-
-.about-container{
-display:flex;
-align-items:center;
-justify-content:space-between;
-gap:40px;
-padding-top: 5%;
+.image-circle:hover {
+  box-shadow: 0 0 0 16px var(--yellow-pale), var(--shadow-yellow);
+  transform: scale(1.03);
 }
-/* About Text */
-
-.about-text{
-width:50%;
+.image-circle img {
+  width: 110%; height: 120%;
+  margin-right: 15%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
 }
+.image-circle:hover img { transform: scale(1.05); }
 
-.about-text h1{
-font-size:40px;
-font-weight:900;
-margin-bottom:20px;
+/* ─── Education ──────────────────────────────────────────── */
+.education-section {
+  background: var(--off-white);
+  padding: 100px 0;
 }
-
-.about-text p{
-font-size:20px;
-line-height:1.7;
-margin-bottom:15px;
-max-width:600px;
+.education-title {
+  font-family: var(--font-display);
+  font-size: 64px;
+  letter-spacing: 2px;
+  margin-bottom: 60px;
 }
-/* About Image */
-
-.about-image{
-width:40%;
-display:flex;
-justify-content:center;
+.education-cards { display: flex; gap: 28px; }
+.edu-card {
+  border: 2px solid var(--gray-200);
+  border-radius: var(--radius-lg);
+  padding: 36px 30px;
+  flex: 1;
+  background: var(--white);
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+  position: relative;
+  overflow: hidden;
 }
-
-.image-circle{
-width:350px;
-height:350px;
-border-radius:50%;
-border:20px solid #ffa500;
-overflow:hidden;
+.edu-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 4px;
+  background: linear-gradient(90deg, var(--yellow), var(--yellow-light));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--transition);
 }
-
-.image-circle img{
-width:110%;
-height:120%;
-margin-top: 0%;
-margin-right: 15%;
-object-fit:cover;
+.edu-card:hover::before { transform: scaleX(1); }
+.edu-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--yellow-light);
 }
-
-/* Education Section */
-
-.education-section{
-background:#ffffff;
-padding-top: 5%;
-padding-bottom: 3%;
+.edu-year {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  color: var(--gray-400);
+  margin-bottom: 12px;
 }
-
-.education-title{
-font-size:40px;
-font-weight:900;
-margin-bottom:40px;
+.edu-college {
+  color: var(--yellow-deep);
+  font-weight: 700;
+  font-size: 15px;
+  margin-bottom: 12px;
 }
+.edu-card p { font-size: 16px; line-height: 1.7; color: var(--gray-600); }
 
-.education-cards{
-display:flex;
-gap:30px;
+/* ─── Work Section ───────────────────────────────────────── */
+.work-section { background: var(--white); padding: 100px 0; }
+.work-title {
+  font-family: var(--font-display);
+  font-size: 64px;
+  letter-spacing: 2px;
+  margin-bottom: 60px;
 }
-
-.edu-card{
-border:3px solid black;
-border-radius:20px;
-padding:25px;
-flex:1;
-background:#f5f5f5;
+.work-container { display: flex; justify-content: space-between; gap: 40px; }
+.work-item {
+  display: flex;
+  gap: 24px;
+  width: 48%;
+  padding: 32px;
+  border: 2px solid var(--gray-200);
+  border-radius: var(--radius-lg);
+  background: var(--white);
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
 }
-
-.edu-year{
-font-weight:700;
-margin-bottom:10px;
+.work-item:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--yellow);
 }
-
-.edu-college{
-color:#ff7a00;
-font-weight:700;
-margin-bottom:10px;
+.work-logo img {
+  width: 110px;
+  height: 65px;
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+  border: 2px solid var(--gray-200);
+  transition: transform var(--transition);
 }
-
-.edu-card p{
-font-size:18px;
-line-height:1.6;
+.work-item:hover .work-logo img { transform: scale(1.06); }
+.work-details h3 {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  color: var(--gray-400);
+  margin-bottom: 10px;
 }
-
-/* Work Section */
-
-.work-section{
-background:#ffffff;
+.work-company {
+  color: var(--yellow-deep);
+  font-weight: 700;
+  font-size: 15px;
+  margin-bottom: 10px;
 }
+.work-details p { font-size: 15px; line-height: 1.7; color: var(--gray-600); }
 
-.work-title{
-font-size:40px;
-font-weight:900;
-margin-bottom:40px;
+/* ─── Skills Section ─────────────────────────────────────── */
+.skills-section {
+  background: linear-gradient(135deg, var(--yellow) 0%, var(--yellow-light) 60%, #ffd580 100%);
+  padding: 100px 0;
+  position: relative;
+  overflow: hidden;
 }
-
-.work-container{
-display:flex;
-justify-content:space-between;
-gap:60px;
+.skills-section::before {
+  content: '';
+  position: absolute;
+  top: -60px; right: -60px;
+  width: 300px; height: 300px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.12);
+  pointer-events: none;
 }
-
-.work-item{
-display:flex;
-gap:20px;
-width:48%;
+.skills-section::after {
+  content: '';
+  position: absolute;
+  bottom: -80px; left: -40px;
+  width: 200px; height: 200px;
+  border-radius: 50%;
+  background: rgba(0,0,0,0.06);
+  pointer-events: none;
 }
-
-.work-logo img{
-width:120px;
-height: 70px;
-border-radius: 15px;
+.skills-title {
+  font-family: var(--font-display);
+  font-size: 64px;
+  letter-spacing: 2px;
+  margin-bottom: 60px;
+  position: relative;
 }
-
-.work-details h3{
-font-size:18px;
-font-weight:900;
-margin-bottom:10px;
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  position: relative;
 }
-
-.work-company{
-color:#ff7a00;
-font-weight:700;
-margin-bottom:10px;
+.skill-card {
+  background: var(--white);
+  border: 2px solid rgba(0,0,0,0.08);
+  border-radius: var(--radius-lg);
+  text-align: center;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition), box-shadow var(--transition);
 }
-
-.work-details p{
-font-size:18px;
-line-height:1.6;
+.skill-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 24px 48px rgba(0,0,0,0.15);
 }
-
-/* Skills Section */
-
-.skills-section{
-background:#f5a000;
-padding:50px 0;
-margin-top: 5%;
+.skill-card img {
+  width: 100px; height: 100px;
+  object-fit: contain;
+  margin: 32px auto 24px;
+  transition: transform 0.5s cubic-bezier(0.34,1.56,0.64,1);
 }
-
-.skills-title{
-font-size:40px;
-font-weight:900;
-margin-bottom:40px;
-}
-
-/* Skills Grid */
-
-.skills-grid{
-display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:40px;
-}
-
-/* Skill Card */
-
-.skill-card{
-background:#e9e9e9;
-border:3px solid black;
-border-radius:20px;
-text-align:center;
-overflow:hidden;
-}
-
-.skill-card img{
-width:120px;
-height:120px;
-object-fit:contain;
-margin:30px auto;
-display:block;
-}
-
-/* Skill Label */
-
-.skill-name{
-border-top:3px solid black;
-padding:12px;
-font-weight:700;
-font-size:18px;
-background:#e9e9e9;
-}
-
-/* Project Section */
-
-.project-section{
-background:#ffffff;
-padding:80px 0;
+.skill-card:hover img { transform: scale(1.15) rotate(-3deg); }
+.skill-name {
+  border-top: 2px solid var(--gray-200);
+  padding: 14px;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: var(--gray-100);
 }
 
+/* ─── Project Section ────────────────────────────────────── */
+.project-section { background: var(--white); padding: 100px 0; }
 .headingh1 {
-font-size: 50px;
-font-weight: 900;
-margin-bottom:30px;
+  font-family: var(--font-display);
+  font-size: 48px;
+  letter-spacing: 2px;
+  color: var(--yellow-deep);
+  margin-bottom: 12px;
+}
+.project-title {
+  font-family: var(--font-display);
+  font-size: 52px;
+  letter-spacing: 2px;
+  margin-bottom: 48px;
+  line-height: 1.1;
+}
+.project-container { display: flex; gap: 60px; align-items: flex-start; }
+.project-video {
+  flex: 1;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  border: 3px solid var(--black);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+.project-video:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 28px 64px rgba(0,0,0,0.18);
+}
+.project-video iframe {
+  display: block;
+  border-radius: 0;
+  border: none;
+  width: 100%;
+  height: 360px;
+}
+.project-details { flex: 1; }
+.project-details h2 {
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+.project-overview {
+  font-size: 16px;
+  line-height: 1.8;
+  color: var(--gray-600);
+  margin-bottom: 24px;
+}
+.project-details h3 {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--yellow-deep);
+  margin: 24px 0 12px;
+}
+.project-details ul { padding-left: 0; }
+.project-details ul li {
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--gray-600);
+  padding-left: 20px;
+  position: relative;
+}
+.project-details ul li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: var(--yellow);
+  font-size: 13px;
+}
+.project-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 28px;
+  padding: 14px 32px;
+  background: var(--black);
+  color: var(--white);
+  border-radius: var(--radius-full);
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.06em;
+  transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+}
+.project-link::after { content: '↗'; font-size: 16px; }
+.project-link:hover {
+  background: var(--yellow);
+  color: var(--black);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-yellow);
 }
 
-.project-title{
-font-size:40px;
-font-weight:900;
-margin-bottom:30px;
+/* ─── Social Section ─────────────────────────────────────── */
+.social-section { background: var(--off-white); padding: 100px 0; }
+.social-title {
+  font-family: var(--font-display);
+  font-size: 52px;
+  letter-spacing: 2px;
+  margin-bottom: 48px;
+}
+.social-container { display: flex; gap: 70px; align-items: center; }
+.social-images { display: flex; align-items: center; gap: 16px; }
+.small-img {
+  width: 175px; height: 350px;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+  border: 3px solid var(--black);
+  box-shadow: var(--shadow-md);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+.big-img {
+  width: 255px; height: 480px;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+  border: 3px solid var(--black);
+  box-shadow: var(--shadow-lg);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+.small-img:hover, .big-img:hover {
+  transform: scale(1.03) translateY(-6px);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+}
+.social-content { max-width: 480px; }
+.social-content h2 { font-size: 24px; font-weight: 700; margin-bottom: 16px; }
+.social-content p { font-size: 16px; line-height: 1.8; color: var(--gray-600); margin-bottom: 14px; }
+.social-content h3 {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--yellow-deep);
+  margin: 20px 0 10px;
+}
+.social-content ul li {
+  font-size: 15px; line-height: 1.9; color: var(--gray-600);
+  padding-left: 20px; position: relative;
+}
+.social-content ul li::before {
+  content: '→'; position: absolute; left: 0;
+  color: var(--yellow); font-size: 13px;
 }
 
-.project-container{
-display:flex;
-gap:40px;
-align-items:flex-start;
+/* ─── Ads Section ────────────────────────────────────────── */
+.ads-section { background: var(--white); padding: 100px 0; }
+.ads-title {
+  font-family: var(--font-display);
+  font-size: 52px;
+  letter-spacing: 2px;
+  margin-bottom: 60px;
+  line-height: 1.1;
+}
+.ads-container { display: flex; gap: 70px; align-items: flex-start; }
+.ads-content { flex: 1; }
+.ads-content h2 { font-size: 26px; font-weight: 700; margin-bottom: 16px; }
+.ads-content p { font-size: 16px; line-height: 1.8; color: var(--gray-600); margin-bottom: 18px; }
+.ads-content h3 {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--yellow-deep);
+  margin: 24px 0 10px;
+}
+.ads-content ul li {
+  font-size: 15px; line-height: 1.9; color: var(--gray-600);
+  padding-left: 20px; position: relative; margin-bottom: 4px;
+}
+.ads-content ul li::before {
+  content: '→'; position: absolute; left: 0;
+  color: var(--yellow); font-size: 13px;
+}
+.ads-images { flex: 1; display: flex; flex-direction: column; gap: 20px; }
+.ads-images img {
+  border-radius: var(--radius-md);
+  border: 2px solid var(--gray-200);
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+.ads-images img:hover {
+  transform: scale(1.02) translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--yellow);
 }
 
-.project-video{
-flex:1;
+/* ─── Analytics Section ──────────────────────────────────── */
+.analytics-section { background: var(--off-white); padding: 100px 0; }
+.analytics-title {
+  font-family: var(--font-display);
+  font-size: 52px;
+  letter-spacing: 2px;
+  margin-bottom: 60px;
+  line-height: 1.1;
+}
+.analytics-container { display: flex; gap: 70px; align-items: flex-start; }
+.analytics-content { flex: 1; }
+.analytics-content h2 { font-size: 26px; font-weight: 700; margin-bottom: 16px; }
+.analytics-content p { font-size: 16px; line-height: 1.8; color: var(--gray-600); margin-bottom: 18px; }
+.analytics-content h3 {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--yellow-deep);
+  margin: 24px 0 10px;
+}
+.analytics-content ul li {
+  font-size: 15px; line-height: 1.9; color: var(--gray-600);
+  padding-left: 20px; position: relative; margin-bottom: 4px;
+}
+.analytics-content ul li::before {
+  content: '→'; position: absolute; left: 0;
+  color: var(--yellow); font-size: 13px;
+}
+.analytics-images { flex: 1; display: flex; flex-direction: column; gap: 20px; }
+.analytics-images img {
+  border-radius: var(--radius-md);
+  border: 2px solid var(--gray-200);
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+.analytics-images img:hover {
+  transform: scale(1.02) translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--yellow);
 }
 
-.project-details{
-flex:1;
+/* ─── Video Section ──────────────────────────────────────── */
+.video-section { background: var(--white); padding: 100px 0; }
+.video-title {
+  font-family: var(--font-display);
+  font-size: 52px;
+  letter-spacing: 2px;
+  margin-bottom: 16px;
+}
+.video-description {
+  font-size: 17px;
+  line-height: 1.8;
+  color: var(--gray-600);
+  max-width: 700px;
+  margin-bottom: 48px;
+}
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.video-grid iframe {
+  width: 100%; height: 300px;
+  border-radius: var(--radius-md);
+  border: 2px solid var(--gray-200);
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+.video-grid iframe:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--yellow);
 }
 
-.project-details h2{
-font-size:28px;
-margin-bottom:15px;
+/* ─── Footer ─────────────────────────────────────────────── */
+.footer {
+  background: var(--black-soft);
+  color: var(--white);
+  padding: 72px 0 28px;
+  border-top: 3px solid var(--yellow);
+}
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1220px;
+  margin: 0 auto;
+  padding: 0 48px;
+  gap: 40px;
+}
+.footer-left h2 {
+  font-family: var(--font-display);
+  font-size: 32px;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+}
+.footer-left p { color: var(--gray-400); font-size: 14px; }
+.footer h3 {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--yellow);
+  margin-bottom: 14px;
+}
+.footer p { font-size: 14px; color: var(--gray-400); line-height: 1.8; }
+.footer a {
+  font-size: 14px;
+  color: var(--gray-400);
+  transition: color var(--transition);
+  display: inline-block;
+}
+.footer a:hover { color: var(--yellow); }
+.footer-bottom {
+  text-align: center;
+  margin-top: 56px;
+  font-size: 12px;
+  color: var(--gray-600);
+  border-top: 1px solid rgba(255,255,255,0.07);
+  padding-top: 28px;
+  font-family: var(--font-mono);
+  letter-spacing: 0.08em;
 }
 
-.project-overview{
-font-size:18px;
-line-height:1.6;
-margin-bottom:20px;
+/* ─── Scroll Reveal ──────────────────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(36px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-.project-details h3{
-margin-top:20px;
-margin-bottom:10px;
+/* ─── Section divider ────────────────────────────────────── */
+.section-divider {
+  width: 100%; height: 2px;
+  background: linear-gradient(90deg, transparent, var(--yellow-pale), transparent);
 }
 
-.project-details ul{
-margin-left:20px;
-margin-bottom:20px;
+/* ═══════════════════════════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════════════════════════ */
+
+/* ── Tablet ── */
+@media (max-width: 1024px) {
+  .container { padding: 0 32px; }
+  .title { font-size: 80px; }
+  .circle { width: 340px; height: 170px; border-radius: 170px 170px 0 0; }
+  .skills-grid { grid-template-columns: repeat(3, 1fr); }
+  .video-grid { grid-template-columns: repeat(2, 1fr); }
+  .about-text h1, .education-title, .work-title, .skills-title,
+  .project-title, .headingh1, .social-title, .ads-title,
+  .analytics-title, .video-title { font-size: 44px; }
 }
 
-.project-link{
-display:inline-block;
-padding:12px 25px;
-background:black;
-color:white;
-text-decoration:none;
-border-radius:25px;
-font-weight:bold;
-}
-/* Social Section */
-
-.social-section{
-background:#ffffff;
-padding:80px 0;
-}
-
-.social-title{
-font-size:40px;
-font-weight:900;
-margin-bottom:30px;
-text-align:left;
-}
-/* Main Layout */
-
-.social-container{
-display:flex;
-gap:60px;
-align-items:center;
-}
-/* LEFT IMAGES */
-
-.social-images{
-display:flex;
-align-items:center;
-gap:20px;
-}
-
-.small-img{
-width:180px;
-height:360px;
-object-fit:cover;
-border-radius:15px;
-border:3px solid black;
-}
-
-.big-img{
-width:260px;
-height:490px;
-object-fit:cover;
-border-radius:20px;
-border:4px solid black;
-}
-/* RIGHT CONTENT */
-
-.social-content{
-max-width:500px;
-}
-
-.social-content h2{
-font-size:26px;
-margin-bottom:15px;
-}
-
-.social-content p{
-font-size:18px;
-line-height:1.6;
-margin-bottom:15px;
-}
-
-.social-content ul{
-margin-left:20px;
-font-size:18px;
-line-height:1.6;
-}
-/* Google Ads Section */
-
-.ads-section{
-background:#ffffff;
-padding:80px 0;
-}
-
-.ads-title{
-font-size:40px;
-font-weight:900;
-margin-bottom:50px;
-}
-
-.ads-container{
-display:flex;
-gap:60px;
-align-items:flex-start;
-}
-
-/* LEFT CONTENT */
-
-.ads-content{
-flex:1;
-}
-
-.ads-content h2{
-font-size:28px;
-margin-bottom:15px;
-}
-
-.ads-content p{
-font-size:18px;
-line-height:1.6;
-margin-bottom:20px;
-}
-
-.ads-content h3{
-margin-top:20px;
-margin-bottom:10px;
-}
-
-.ads-content ul{
-margin-left:20px;
-font-size:18px;
-line-height:1.6;
-}
-
-/* RIGHT IMAGES */
-
-.ads-images{
-flex:1;
-display:flex;
-flex-direction:column;
-gap:25px;
-}
-
-.ads-images img{
-width:100%;
-border-radius:15px;
-border:3px solid black;
-}
-
-.analytics-section{
-background:#ffffff;
-padding:80px 0;
-}
-
-.analytics-title{
-font-size:40px;
-font-weight:900;
-margin-bottom:50px;
-}
-
-.analytics-container{
-display:flex;
-gap:60px;
-align-items:flex-start;
-}
-
-.analytics-content{
-flex:1;
-}
-
-.analytics-content h2{
-font-size:28px;
-margin-bottom:15px;
-}
-
-.analytics-content p{
-font-size:18px;
-line-height:1.6;
-margin-bottom:20px;
-}
-
-.analytics-content h3{
-margin-top:20px;
-margin-bottom:10px;
-}
-
-.analytics-content ul{
-margin-left:20px;
-font-size:18px;
-line-height:1.6;
-}
-
-.analytics-images{
-flex:1;
-display:flex;
-flex-direction:column;
-gap:25px;
-}
-
-.analytics-images img{
-width:100%;
-border-radius:15px;
-border:3px solid black;
-}
-
-.video-section{
-padding:80px 0;
-background:#ffffff;
-}
-
-.video-title{
-font-size:40px;
-font-weight:900;
-margin-bottom:20px;
-}
-
-.video-description{
-font-size:18px;
-max-width:800px;
-margin-bottom:40px;
-line-height:1.6;
-}
-
-.video-grid{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:25px;
-}
-
-.video-grid iframe{
-width:100%;
-height:315px;
-border-radius:15px;
-border:3px solid black;
-}
-
-.footer{
-background:#111;
-color:white;
-padding:50px 0 20px;
-}
-
-.footer-container{
-display:flex;
-justify-content:space-between;
-max-width:1200px;
-margin:auto;
-gap:40px;
-}
-
-.footer h2{
-margin-bottom:10px;
-}
-
-.footer h3{
-margin-bottom:10px;
-}
-
-.footer a{
-color:white;
-text-decoration:none;
-}
-
-.footer-bottom{
-text-align:center;
-margin-top:40px;
-font-size:14px;
-opacity:0.7;
-}
-
-/* Mobile Responsive - Updated & Fixed */
+/* ── Mobile ── */
 @media (max-width: 768px) {
-
-  /* Prevent horizontal scrolling */
-  body, html {
-    overflow-x: hidden;
-  }
-
-  img, iframe {
-    max-width: 100%;
-    height: auto;
-  }
+  body, html { overflow-x: hidden; }
+  .container { padding: 0 20px; }
 
   /* Header */
   .header .container {
-    flex-direction: row;       /* Logo + nav in one line */
+    padding: 12px 20px;
+    flex-direction: row;
     justify-content: space-between;
-    align-items: center;
-    padding: 15px 20px;
-    gap: 10px;
   }
+  .nav ul { gap: 18px; flex-wrap: wrap; }
+  .nav a { font-size: 13px; }
 
-  .nav ul {
-    flex-direction: row;       /* Nav links in one row */
-    gap: 15px;
-    flex-wrap: wrap;
-  }
-
-  /* Hero Section */
-  .hero-top h1 {
-    font-size: 36px;
-    line-height: 1.2;
-    text-align: center;
-  }
-
-  .hero-top h2 {
-    font-size: 18px;
-    text-align: center;
-  }
-
+  /* Hero */
+  .hero { padding: 60px 0 0; }
+  .title { font-size: 52px; letter-spacing: 2px; }
+  .hero h2 { font-size: 15px; }
   .hero-content {
-    display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    margin-top: 20px;
-    position: static !important;
+    margin-top: 30px;
   }
-
   .left-content, .right-content {
-    width: 100%;
-    text-align: center;
-    margin: 10px 0 !important;
+    width: 100%; text-align: center;
+    margin: 0 !important; padding-bottom: 0;
   }
-
-  /* Hide hero tags/buttons on mobile */
-  .left-content .tag,
-  .right-content .tag {
-    display: none;
-  }
-
+  .left-content .tag, .right-content .tag { display: none; }
+  .quote { display: none; }
   .center-circle {
-    width: 220px !important;
-    height: 130px !important;
-    border-radius: 110px 110px 0 0 !important;
+    position: relative;
+    left: auto; transform: none;
     margin: 0 auto;
-    position: relative !important;
-    transform: none !important;
+  }
+  .circle {
+    width: 240px; height: 120px;
+    border-radius: 120px 120px 0 0;
   }
 
-  .profile-img {
-    width: 160px !important;
-    position: relative !important;
-    bottom: 0 !important;
-    margin-top: 5px;
-  }
-
-  .quote-icon {
-    font-size: 40px;
-  }
-
-  .quote p {
-    font-size: 16px;
-  }
-
-  /* About Section */
+  /* About */
   .about-container {
     flex-direction: column;
-    align-items: center;
-    gap: 0px;
+    gap: 0;
+    padding: 60px 0;
   }
+  .about-text, .about-image { width: 100%; text-align: center; }
+  .about-text h1::after { left: 50%; transform: translateX(-50%); }
+  .about-text { margin-bottom: 40px; }
+  .image-circle { width: 260px; height: 260px; margin: 0 auto; }
+  .about-text h1 { font-size: 42px; }
 
-  .about-text, .about-image {
-    width: 100%;
-    text-align: center;
-    margin-top: 10%;
-  }
+  /* Education */
+  .education-section { padding: 60px 0; }
+  .education-cards { flex-direction: column; gap: 20px; }
+  .education-title { font-size: 38px; margin-bottom: 36px; }
 
-  .image-circle {
-    width: 250px;
-    height: 250px;
-  }
+  /* Work */
+  .work-section { padding: 60px 0; }
+  .work-container { flex-direction: column; gap: 20px; }
+  .work-item { width: 100%; }
+  .work-title { font-size: 38px; margin-bottom: 36px; }
 
-  /* Education Section */
-  .education-cards {
-    flex-direction: column;
-    gap: 20px;
-    margin-top: 10%;
-  }
+  /* Skills */
+  .skills-section { padding: 60px 0; }
+  .skills-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .skills-title { font-size: 38px; margin-bottom: 36px; }
 
-  /* Work Section */
-  .work-container {
-    flex-direction: column;
-    gap: 20px;
-    margin-top: 10%;
-  }
-.work-logo {
-  width: 70%;
-  height: 50%;
-}
-  
-  .work-item {
-    width: 100%;
-  }
+  /* Projects */
+  .project-section { padding: 60px 0; }
+  .project-container { flex-direction: column; gap: 28px; }
+  .project-video iframe { height: 240px; }
+  .headingh1 { font-size: 28px; }
+  .project-title { font-size: 32px; }
 
-  /* Skills Grid */
-  .skills-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-    margin-top: 10%;
-  }
-
-  /* Projects Section */
-  .project-container {
-    flex-direction: column;
-    gap: 20px;
-    margin-top: 10%;
-  }
-
-  /* Social Section */
-  .social-container {
-    flex-direction: column;
-    gap: 20px;
-  }
-
+  /* Social */
+  .social-section { padding: 60px 0; }
+  .social-container { flex-direction: column; gap: 28px; }
   .social-images {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 15px;
+    gap: 12px;
   }
+  .small-img { width: 130px; height: 240px; }
+  .big-img   { width: 180px; height: 320px; }
+  .social-title { font-size: 30px; }
 
-  /* Ads & Analytics Sections */
-  .ads-container, .analytics-container {
-    flex-direction: column;
-    gap: 20px;
-  }
+  /* Ads / Analytics */
+  .ads-section, .analytics-section { padding: 60px 0; }
+  .ads-container, .analytics-container { flex-direction: column; gap: 28px; }
+  .ads-title, .analytics-title { font-size: 30px; }
 
-  /* Video Section */
-  .video-grid {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
+  /* Video */
+  .video-section { padding: 60px 0; }
+  .video-grid { grid-template-columns: 1fr; gap: 18px; }
+  .video-title { font-size: 30px; }
 
   /* Footer */
   .footer-container {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    gap: 20px;
+    gap: 32px;
+    padding: 0 20px;
   }
-}
 
-/* Mobile Typography Fix */
+  /* Common heading sizes */
+  .about-text h1,
+  .education-title,
+  .work-title,
+  .skills-title { font-size: 38px; }
 
-/* Section Headings */
-.about-text h1,
-.education-title,
-.work-title,
-.skills-title,
-.project-title,
-.headingh1,
-.social-title,
-.ads-title,
-.analytics-title,
-.video-title {
-  font-size: 26px;   /* between 25–28px */
-  line-height: 1.3;
-  text-align: center;
-}
+  .project-details h2,
+  .ads-content h2,
+  .analytics-content h2,
+  .social-content h2 { font-size: 20px; }
 
-/* Sub Headings */
-.project-details h2,
-.ads-content h2,
-.analytics-content h2,
-.social-content h2 {
-  font-size: 22px;
-  text-align: center;
-}
-
-/* Content / Paragraphs */
-.about-text p,
-.edu-card p,
-.work-details p,
-.project-overview,
-.social-content p,
-.ads-content p,
-.analytics-content p,
-.video-description {
-  font-size: 16px;
-  line-height: 1.6;
-}
-
-/* List Items */
-.project-details ul li,
-.social-content ul li,
-.ads-content ul li,
-.analytics-content ul li {
-  font-size: 16px;
-  line-height: 1.6;
+  .about-text p, .edu-card p, .work-details p,
+  .project-overview, .social-content p,
+  .ads-content p, .analytics-content p,
+  .video-description { font-size: 15px; }
 }
 </style>
-
 </head>
 
 <body>
 
-
-<!-- Header -->
-
-<header class="header">
-
-<div class="container">
-
-<div class="logo">
-<img src="https://res.cloudinary.com/dm0ir0sw1/image/upload/v1773822805/kv_brand_ad000c.jpg" alt="logo">
-</div>
-
-<nav class="nav">
-<ul>
-<li><a href="#">Home</a></li>
-</ul>
-</nav>
-</div>
+<!-- ── Header ───────────────────────────────────────────── -->
+<header class="header" id="main-header">
+  <div class="container">
+    <div class="logo">
+      <img src="https://res.cloudinary.com/dm0ir0sw1/image/upload/v1773822805/kv_brand_ad000c.jpg" alt="logo">
+    </div>
+    <nav class="nav">
+      <ul>
+        <li><a href="#">Home</a></li>
+      </ul>
+    </nav>
+  </div>
 </header>
-<!-- Hero Section -->
+
+<!-- ── Hero ─────────────────────────────────────────────── -->
 <section class="hero">
-<div class="container">
-<div class="hero-top">
-<span class="hello-btn">Hello</span>
-<h2>I'M <span class="name">VENKATESH</span> 👋</h2>
-<h1 class="title">DIGITAL MARKETER</h1>
-</div>
-<div class="hero-content">
-<div class="left-content">
-<button class="tag marketer">Marketer</button>
-<div class="quote">
-<span class="quote-icon">“</span>
-<p>
-I help businesses grow <br>
-online using ads, SEO, <br>
-Content marketing.
-</p>
-</div>
-</div>
-<div class="center-circle">
-<div class="circle"></div>
-</div>
-<div class="right-content">
-<button class="tag">Social media</button>
-<button class="tag ads">Ads</button>
-<button class="tag seo">SEO</button>
-</div>
-</div>
-</div>
-</section>
-<!-- About Section -->
+  <div class="container">
+    <div class="hero-top">
+      <span class="hello-btn">Hello</span>
+      <h2>I'M <span class="name">VENKATESH</span> 👋</h2>
+      <h1 class="title">DIGITAL MARKETER</h1>
+    </div>
 
-<section class="about-section">
+    <div class="hero-content">
+      <div class="left-content">
+        <button class="tag marketer">Marketer</button>
+        <div class="quote">
+          <span class="quote-icon">"</span>
+          <p>I help businesses grow<br>online using ads, SEO,<br>Content marketing.</p>
+        </div>
+      </div>
+
+      <div class="center-circle">
+        <div class="circle"></div>
+      </div>
+
+      <div class="right-content">
+        <button class="tag">Social media</button>
+        <button class="tag ads">Ads</button>
+        <button class="tag seo">SEO</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Skills Marquee ────────────────────────────────────── -->
 <div class="skills-marquee">
-<div class="skills-track">
-<span>SEO</span>
-<span>GOOGLE ADS</span>
-<span>META ADS</span>
-<span>SMM</span>
-<span>EMAIL MARKETING</span>
-<span>DESIGNING</span>
+  <div class="marquee-inner">
+    <div class="skills-track">
+      <span>SEO</span><span class="dot">✦</span>
+      <span>GOOGLE ADS</span><span class="dot">✦</span>
+      <span>META ADS</span><span class="dot">✦</span>
+      <span>SMM</span><span class="dot">✦</span>
+      <span>EMAIL MARKETING</span><span class="dot">✦</span>
+      <span>DESIGNING</span><span class="dot">✦</span>
+      <span>WEB DEVELOPMENT</span><span class="dot">✦</span>
+      <span>ANALYTICS</span><span class="dot">✦</span>
+    </div>
+    <!-- duplicate for seamless loop -->
+    <div class="skills-track" aria-hidden="true">
+      <span>SEO</span><span class="dot">✦</span>
+      <span>GOOGLE ADS</span><span class="dot">✦</span>
+      <span>META ADS</span><span class="dot">✦</span>
+      <span>SMM</span><span class="dot">✦</span>
+      <span>EMAIL MARKETING</span><span class="dot">✦</span>
+      <span>DESIGNING</span><span class="dot">✦</span>
+      <span>WEB DEVELOPMENT</span><span class="dot">✦</span>
+      <span>ANALYTICS</span><span class="dot">✦</span>
+    </div>
+  </div>
 </div>
-</div>
-<div class="container">
-<div class="about-container">
-<div class="about-text">
-<h1>ABOUT ME</h1>
-<p>
-I’m a digital marketer with hands-on experience working in a
-startup environment, where I managed multiple responsibilities
-including website development, SEO, paid ads, and content creation.
-</p>
 
-<p>
-I enjoy building and growing brands from scratch by combining
-creative storytelling with data-driven marketing strategies.
-</p>
-</div>
-<div class="about-image">
-<div class="image-circle">
-<img src="https://res.cloudinary.com/dm0ir0sw1/image/upload/v1773822806/new_background_removed_xklqxg.png" alt="profile">
-</div>
-</div>
-</div>
-</div>
+<!-- ── About ─────────────────────────────────────────────── -->
+<section class="about-section">
+  <div class="container">
+    <div class="about-container reveal">
+      <div class="about-text">
+        <span class="section-label">Who I Am</span>
+        <h1>ABOUT ME</h1>
+        <p>I'm a digital marketer with hands-on experience working in a startup environment, where I managed multiple responsibilities including website development, SEO, paid ads, and content creation.</p>
+        <p>I enjoy building and growing brands from scratch by combining creative storytelling with data-driven marketing strategies.</p>
+      </div>
+      <div class="about-image">
+        <div class="image-circle">
+          <img src="https://res.cloudinary.com/dm0ir0sw1/image/upload/v1773822806/new_background_removed_xklqxg.png" alt="profile">
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
+
+<div class="section-divider"></div>
+
+<!-- ── Education ─────────────────────────────────────────── -->
 <section class="education-section">
-<div class="container">
-<h1 class="education-title">EDUCATION</h1>
-<div class="education-cards">
-<div class="edu-card">
-<div class="edu-year">2022 - 2025</div>
-<div class="edu-college">
-A.V. College of Arts, Science & Commerce
-</div>
-<p>
-Completed B.Com (Computer Applications)
-with a CGPA of 8.99
-</p>
-</div>
-<div class="edu-card">
-<div class="edu-year">2020 - 2022</div>
-<div class="edu-college">
-Master Junior College
-</div>
-<p>
-Completed Intermediate (MEC)
-with 94.6%
-</p>
-</div>
-<div class="edu-card">
-<div class="edu-year">2020</div>
-<div class="edu-college">
-Little Star High School
-</div>
-<p>
-Completed SSC with a CGPA of 10
-</p>
-</div>
-</div>
-</div>
+  <div class="container">
+    <span class="section-label">Academic Background</span>
+    <h1 class="education-title">EDUCATION</h1>
+    <div class="education-cards">
+      <div class="edu-card reveal">
+        <div class="edu-year">2022 – 2025</div>
+        <div class="edu-college">A.V. College of Arts, Science &amp; Commerce</div>
+        <p>Completed B.Com (Computer Applications) with a CGPA of 8.99</p>
+      </div>
+      <div class="edu-card reveal">
+        <div class="edu-year">2020 – 2022</div>
+        <div class="edu-college">Master Junior College</div>
+        <p>Completed Intermediate (MEC) with 94.6%</p>
+      </div>
+      <div class="edu-card reveal">
+        <div class="edu-year">2020</div>
+        <div class="edu-college">Little Star High School</div>
+        <p>Completed SSC with a CGPA of 10</p>
+      </div>
+    </div>
+  </div>
 </section>
+
+<div class="section-divider"></div>
+
+<!-- ── Work Experience ───────────────────────────────────── -->
 <section class="work-section">
-<div class="container">
-<h1 class="work-title">WORK EXPERIENCE</h1>
-<div class="work-container">
-<div class="work-item">
-<div class="work-logo">
-<img src="https://res.cloudinary.com/dm0ir0sw1/image/upload/v1773822807/odmt_pzasms.jpg" alt="">
-</div>
-<div class="work-details">
-<h3>MAY 2025 - SEPTEMBER 2025</h3>
-<div class="work-company">ODMT (Intern)</div>
-<p>
-Worked as a Digital Marketing Intern,
-gaining hands-on experience in SEO,
-content creation, and basic marketing
-activities.
-</p>
-</div>
-</div>
-<div class="work-item">
-<div class="work-logo">
-<img src="https://res.cloudinary.com/dm0ir0sw1/image/upload/v1773822809/wapl_ktqnzi.jpg" alt="">
-</div>
-
-<div class="work-details">
-
-<h3>OCTOBER 2025 - MARCH 2026</h3>
-
-<div class="work-company">
-WAPL (Digital Marketing Executive)
-</div>
-
-<p>
-Managed end-to-end digital marketing
-including WordPress website development,
-SEO, paid ads, content design,
-and social media management.
-</p>
-
-</div>
-
-</div>
-
-
-</div>
-
-</div>
-
+  <div class="container">
+    <span class="section-label">Professional Journey</span>
+    <h1 class="work-title">WORK EXPERIENCE</h1>
+    <div class="work-container">
+      <div class="work-item reveal">
+        <div class="work-logo">
+          <img src="https://res.cloudinary.com/dm0ir0sw1/image/upload/v1773822807/odmt_pzasms.jpg" alt="ODMT">
+        </div>
+        <div class="work-details">
+          <h3>MAY 2025 – SEPTEMBER 2025</h3>
+          <div class="work-company">ODMT (Intern)</div>
+          <p>Worked as a Digital Marketing Intern, gaining hands-on experience in SEO, content creation, and basic marketing activities.</p>
+        </div>
+      </div>
+      <div class="work-item reveal">
+        <div class="work-logo">
+          <img src="https://res.cloudinary.com/dm0ir0sw1/image/upload/v1773822809/wapl_ktqnzi.jpg" alt="WAPL">
+        </div>
+        <div class="work-details">
+          <h3>OCTOBER 2025 – MARCH 2026</h3>
+          <div class="work-company">WAPL (Digital Marketing Executive)</div>
+          <p>Managed end-to-end digital marketing including WordPress website development, SEO, paid ads, content design, and social media management.</p>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
+<!-- ── Skills ────────────────────────────────────────────── -->
 <section class="skills-section">
-
-<div class="container">
-
-<h1 class="skills-title">SKILLS</h1>
-
-<div class="skills-grid">
-
-<div class="skill-card">
-<img src="https://res.cloudinary.com/dm0ir0sw1/image/upload/v1773822806/seo_izpg1w.png" alt="">
-<div class="skill-name">SEO</div>
-</div>
-
-<div class="skill-card">
-<img src="https://res.cloudinary.com/dm0ir0sw1/image/upload/v1773822805/google_ads_gj9fts.png" alt="">
-<div class="skill-name">GOOGLE ADS</div>
-</div>
-
-<div class="skill-card">
-<img src="https://res.cloudinary.com/dm0ir0sw1/image/upload/v1773822805/Meta-Logo_ymn1y5.png" alt="">
-<div class="skill-name">META ADS</div>
-</div>
-
-<div class="skill-card">
-<img src="https://res.cloudinary.com/dm0ir0sw1/image/upload/v1773822806/social_media_logo_ptfwsf.png" alt="">
-<div class="skill-name">SMM</div>
-</div>
-
-<div class="skill-card">
-<img src="https://res.cloudinary.com/dm0ir0sw1/image/upload/v1773822805/email_marketing-removebg-preview_rtdyaw.png" alt="">
-<div class="skill-name">EMAIL MARKETING</div>
-</div>
-
-<div class="skill-card">
-<img src="https://res.cloudinary.com/dm0ir0sw1/image/upload/v1773822810/WhatsApp-Marketing-on-transparent-PNG-removebg-preview_zz8l8q.png" alt="">
-<div class="skill-name">WHATSAPP MARKETING</div>
-</div>
-
-<div class="skill-card">
-<img src="https://res.cloudinary.com/dm0ir0sw1/image/upload/v1773822804/canva_new_logo_ildpi5.png" alt="">
-<div class="skill-name">DESIGNING</div>
-</div>
-
-<div class="skill-card">
-<img src="https://res.cloudinary.com/dm0ir0sw1/image/upload/v1773822810/Wordpress_Blue_logo_k20x28.png" alt="">
-<div class="skill-name">WEB DESIGNING</div>
-</div>
-
-</div>
-
-</div>
-
+  <div class="container">
+    <span class="section-label" style="color:var(--black);">What I Do</span>
+    <h1 class="skills-title">SKILLS</h1>
+    <div class="skills-grid">
+      <div class="skill-card reveal">
+        <img src="https://res.cloudinary.com/dm0ir0sw1/image/upload/v1773822806/seo_izpg1w.png" alt="SEO">
+        <div class="skill-name">SEO</div>
+      </div>
+      <div class="skill-card reveal">
+        <img src="https://res.cloudinary.com/dm0ir0sw1/image/upload/v1773822805/google_ads_gj9fts.png" alt="Google Ads">
+        <div class="skill-name">GOOGLE ADS</div>
+      </div>
+      <div class="skill-card reveal">
+        <img src="https://res.cloudinary.com/dm0ir0sw1/image/upload/v1773822805/Meta-Logo_ymn1y5.png" alt="Meta Ads">
+        <div class="skill-name">META ADS</div>
+      </div>
+      <div class="skill-card reveal">
+        <img src="https://res.cloudinary.com/dm0ir0sw1/image/upload/v1773822806/social_media_logo_ptfwsf.png" alt="SMM">
+        <div class="skill-name">SMM</div>
+      </div>
+      <div class="skill-card reveal">
+        <img src="https://res.cloudinary.com/dm0ir0sw1/image/upload/v1773822805/email_marketing-removebg-preview_rtdyaw.png" alt="Email Marketing">
+        <div class="skill-name">EMAIL MARKETING</div>
+      </div>
+      <div class="skill-card reveal">
+        <img src="https://res.cloudinary.com/dm0ir0sw1/image/upload/v1773822810/WhatsApp-Marketing-on-transparent-PNG-removebg-preview_zz8l8q.png" alt="WhatsApp Marketing">
+        <div class="skill-name">WHATSAPP MARKETING</div>
+      </div>
+      <div class="skill-card reveal">
+        <img src="https://res.cloudinary.com/dm0ir0sw1/image/upload/v1773822804/canva_new_logo_ildpi5.png" alt="Canva">
+        <div class="skill-name">DESIGNING</div>
+      </div>
+      <div class="skill-card reveal">
+        <img src="https://res.cloudinary.com/dm0ir0sw1/image/upload/v1773822810/Wordpress_Blue_logo_k20x28.png" alt="WordPress">
+        <div class="skill-name">WEB DESIGNING</div>
+      </div>
+    </div>
+  </div>
 </section>
 
+<!-- ── Projects ──────────────────────────────────────────── -->
 <section class="project-section">
-
-<div class="container">
-
-<h2 class="headingh1">PROJECTS</h2>
-
-<h1 class="project-title">WEB DESIGNING & BASIC SEO PROJECT</h1>
-
-<div class="project-container">
-
-<div class="project-video">
-
-<iframe width="100%" height="400"
-src="https://www.youtube.com/embed/9emZnP_5hB8"
-title="Website Project Demo"
-frameborder="0"
-allowfullscreen>
-</iframe>
-
-</div>
-
-
-<div class="project-details">
-
-<h2>Product Website – Wynara</h2>
-
-<p class="project-overview">
-Developed and launched a product website for Wynara under the WAPL brand.
-The project involved domain setup, hosting configuration, website design,
-and implementation of basic SEO for visibility.
-</p>
-
-
-<h3>Tools & Technologies</h3>
-
-<ul>
-<li>WordPress</li>
-<li>Elementor</li>
-<li>Astra Theme</li>
-<li>Contact Form 7</li>
-<li>Razorpay Integration</li>
-<li>Screaming Frog</li>
-</ul>
-
-
-<h3>Key Contributions</h3>
-
-<ul>
-<li>Purchased domain and hosting from BigRock.</li>
-<li>Connected domain with hosting using DNS configuration.</li>
-<li>Designed website using Elementor and Astra theme.</li>
-<li>Used minimal plugins to maintain website speed.</li>
-<li>Implemented Contact Form 7 for inquiries.</li>
-<li>Integrated Razorpay for payment registration.</li>
-<li>Performed technical SEO analysis using Screaming Frog.</li>
-<li>Implemented basic on-page SEO and Technical SEO for search visibility.</li>
-</ul>
-
-
-<a href="https://wynara.in" target="_blank" class="project-link">
-Visit Website
-</a>
-
-</div>
-
-</div>
-
-</div>
-
+  <div class="container">
+    <span class="section-label">Case Study</span>
+    <h2 class="headingh1">PROJECTS</h2>
+    <h1 class="project-title">WEB DESIGNING &amp; BASIC SEO PROJECT</h1>
+    <div class="project-container">
+      <div class="project-video reveal">
+        <iframe width="100%" height="400"
+          src="https://www.youtube.com/embed/9emZnP_5hB8"
+          title="Website Project Demo"
+          frameborder="0" allowfullscreen>
+        </iframe>
+      </div>
+      <div class="project-details reveal">
+        <h2>Product Website – Wynara</h2>
+        <p class="project-overview">Developed and launched a product website for Wynara under the WAPL brand. The project involved domain setup, hosting configuration, website design, and implementation of basic SEO for visibility.</p>
+        <h3>Tools &amp; Technologies</h3>
+        <ul>
+          <li>WordPress</li>
+          <li>Elementor</li>
+          <li>Astra Theme</li>
+          <li>Contact Form 7</li>
+          <li>Razorpay Integration</li>
+          <li>Screaming Frog</li>
+        </ul>
+        <h3>Key Contributions</h3>
+        <ul>
+          <li>Purchased domain and hosting from BigRock.</li>
+          <li>Connected domain with hosting using DNS configuration.</li>
+          <li>Designed website using Elementor and Astra theme.</li>
+          <li>Used minimal plugins to maintain website speed.</li>
+          <li>Implemented Contact Form 7 for inquiries.</li>
+          <li>Integrated Razorpay for payment registration.</li>
+          <li>Performed technical SEO analysis using Screaming Frog.</li>
+          <li>Implemented basic on-page SEO and Technical SEO for search visibility.</li>
+        </ul>
+        <a href="https://wynara.in" target="_blank" class="project-link">Visit Website</a>
+      </div>
+    </div>
+  </div>
 </section>
 
+<div class="section-divider"></div>
+
+<!-- ── Social Media ──────────────────────────────────────── -->
 <section class="social-section">
-
-<div class="container">
-
-<h1 class="social-title">SOCIAL MEDIA BRAND AWARENESS</h1>
-
-<div class="social-container">
-
-<!-- LEFT SIDE IMAGES -->
-
-<div class="social-images">
-
-<img class="small-img"
-src="https://res.cloudinary.com/dm0ir0sw1/image/upload/v1773823068/youtube_dt1dcy.jpg"
-alt="YouTube Content">
-
-<img class="big-img"
-src="https://res.cloudinary.com/dm0ir0sw1/image/upload/v1773823056/linkedin_tumpnh.jpg"
-alt="LinkedIn Growth">
-
-<img class="small-img"
-src="https://res.cloudinary.com/dm0ir0sw1/image/upload/v1773823048/instagram_zn4iad.jpg"
-alt="Instagram Content">
-
-</div>
-
-
-<!-- RIGHT SIDE CONTENT -->
-
-<div class="social-content">
-
-<h2>Social Media Account Management – WAPL</h2>
-
-<p>
-Created and managed multiple social media accounts to increase
-brand visibility and online presence across platforms.
-</p>
-
-<p>
-Managed platforms including LinkedIn, Instagram, YouTube,
-Facebook, and X. Since WAPL is a corporate business,
-the main focus was on growing the professional audience
-on LinkedIn.
-</p>
-
-<p>
-Through consistent posting and engagement strategies,
-the LinkedIn page grew from <strong>0 to 400+ followers in 3 months</strong>.
-</p>
-
-<h3>Key Activities</h3>
-
-<ul>
-<li>Created new social media accounts for the brand</li>
-<li>Designed and posted engaging content</li>
-<li>Published posts and videos regularly</li>
-<li>Focused on LinkedIn for corporate audience</li>
-<li>Improved brand awareness through content strategy</li>
-</ul>
-
-</div>
-
-</div>
-
-</div>
-
+  <div class="container">
+    <span class="section-label">Brand Growth</span>
+    <h1 class="social-title">SOCIAL MEDIA BRAND AWARENESS</h1>
+    <div class="social-container">
+      <div class="social-images reveal">
+        <img class="small-img" src="https://res.cloudinary.com/dm0ir0sw1/image/upload/v1773823068/youtube_dt1dcy.jpg" alt="YouTube Content">
+        <img class="big-img"   src="https://res.cloudinary.com/dm0ir0sw1/image/upload/v1773823056/linkedin_tumpnh.jpg" alt="LinkedIn Growth">
+        <img class="small-img" src="https://res.cloudinary.com/dm0ir0sw1/image/upload/v1773823048/instagram_zn4iad.jpg" alt="Instagram Content">
+      </div>
+      <div class="social-content reveal">
+        <h2>Social Media Account Management – WAPL</h2>
+        <p>Created and managed multiple social media accounts to increase brand visibility and online presence across platforms.</p>
+        <p>Managed platforms including LinkedIn, Instagram, YouTube, Facebook, and X. Since WAPL is a corporate business, the main focus was on growing the professional audience on LinkedIn.</p>
+        <p>Through consistent posting and engagement strategies, the LinkedIn page grew from <strong>0 to 400+ followers in 3 months</strong>.</p>
+        <h3>Key Activities</h3>
+        <ul>
+          <li>Created new social media accounts for the brand</li>
+          <li>Designed and posted engaging content</li>
+          <li>Published posts and videos regularly</li>
+          <li>Focused on LinkedIn for corporate audience</li>
+          <li>Improved brand awareness through content strategy</li>
+        </ul>
+      </div>
+    </div>
+  </div>
 </section>
 
+<div class="section-divider"></div>
+
+<!-- ── Google Ads ────────────────────────────────────────── -->
 <section class="ads-section">
-
-<div class="container">
-
-<h1 class="ads-title">GOOGLE ADS CAMPAIGN MANAGEMENT</h1>
-
-<div class="ads-container">
-
-<!-- LEFT SIDE CONTENT -->
-
-<div class="ads-content">
-
-<h2>Google Ads Campaign – Internship & Course Promotion</h2>
-
-<p>
-Created and managed advertising campaigns to promote an internship
-program and training course. The campaigns were focused on lead
-generation and brand awareness.
-</p>
-
-<h3>Campaign Setup</h3>
-
-<ul>
-<li>Created a new Google Ads account for the company.</li>
-<li>Configured account structure and campaign manager.</li>
-<li>Designed landing pages for lead generation.</li>
-<li>Implemented proper conversion tracking.</li>
-</ul>
-
-<h3>Campaign Types</h3>
-
-<ul>
-<li><strong>Search Campaign:</strong> Initial testing campaign generated 10 leads with 4 quality leads.</li>
-<li><strong>Display Campaign:</strong> Launched for brand awareness but later paused due to low relevance.</li>
-<li><strong>Video Campaign:</strong> Ran testimonial-based video ads using edited clips to improve credibility.</li>
-</ul>
-
-<h3>Results</h3>
-
-<ul>
-<li>10 leads generated through search campaigns</li>
-<li>2 quality leads from search ads</li>
-<li>2 additional quality leads from video ads</li>
-<li>Improved campaign performance with proper setup and optimization</li>
-</ul>
-
-</div>
-
-
-<!-- RIGHT SIDE IMAGES -->
-
-<div class="ads-images">
-
-<img src="https://res.cloudinary.com/dm0ir0sw1/image/upload/v1773824596/search_campaign_dmxc72.png" alt="Search Campaign">
-
-<img src="https://res.cloudinary.com/dm0ir0sw1/image/upload/v1773824589/display_campaign_2_oi4adz.png" alt="Display Campaign">
-
-<img src="https://res.cloudinary.com/dm0ir0sw1/image/upload/v1773824608/video_campaign_zz3acu.png" alt="Video Campaign">
-
-</div>
-
-</div>
-
-</div>
-
+  <div class="container">
+    <span class="section-label">Paid Media</span>
+    <h1 class="ads-title">GOOGLE ADS CAMPAIGN MANAGEMENT</h1>
+    <div class="ads-container">
+      <div class="ads-content reveal">
+        <h2>Google Ads Campaign – Internship &amp; Course Promotion</h2>
+        <p>Created and managed advertising campaigns to promote an internship program and training course. The campaigns were focused on lead generation and brand awareness.</p>
+        <h3>Campaign Setup</h3>
+        <ul>
+          <li>Created a new Google Ads account for the company.</li>
+          <li>Configured account structure and campaign manager.</li>
+          <li>Designed landing pages for lead generation.</li>
+          <li>Implemented proper conversion tracking.</li>
+        </ul>
+        <h3>Campaign Types</h3>
+        <ul>
+          <li><strong>Search Campaign:</strong> Initial testing campaign generated 10 leads with 4 quality leads.</li>
+          <li><strong>Display Campaign:</strong> Launched for brand awareness but later paused due to low relevance.</li>
+          <li><strong>Video Campaign:</strong> Ran testimonial-based video ads using edited clips to improve credibility.</li>
+        </ul>
+        <h3>Results</h3>
+        <ul>
+          <li>10 leads generated through search campaigns</li>
+          <li>2 quality leads from search ads</li>
+          <li>2 additional quality leads from video ads</li>
+          <li>Improved campaign performance with proper setup and optimization</li>
+        </ul>
+      </div>
+      <div class="ads-images reveal">
+        <img src="https://res.cloudinary.com/dm0ir0sw1/image/upload/v1773824596/search_campaign_dmxc72.png" alt="Search Campaign">
+        <img src="https://res.cloudinary.com/dm0ir0sw1/image/upload/v1773824589/display_campaign_2_oi4adz.png" alt="Display Campaign">
+        <img src="https://res.cloudinary.com/dm0ir0sw1/image/upload/v1773824608/video_campaign_zz3acu.png" alt="Video Campaign">
+      </div>
+    </div>
+  </div>
 </section>
 
+<!-- ── Analytics ─────────────────────────────────────────── -->
 <section class="analytics-section">
-
-<div class="container">
-
-<h1 class="analytics-title">ANALYTICS & CONVERSION OPTIMIZATION</h1>
-
-<div class="analytics-container">
-
-<!-- LEFT CONTENT -->
-
-<div class="analytics-content">
-
-<h2>Website Analytics & User Behavior Tracking</h2>
-
-<p>
-Implemented analytics tools to track website performance, understand
-user behavior, and optimize marketing campaigns. The goal was to use
-data-driven insights to improve targeting, user experience, and
-conversion rates.
-</p>
-
-<h3>Google Analytics 4 (GA4)</h3>
-
-<ul>
-<li>Tracked website users, sessions, and traffic sources.</li>
-<li>Analyzed audience demographics such as device type, location, and interests.</li>
-<li>Used audience insights to refine targeting for advertising campaigns.</li>
-<li>Monitored campaign performance and engagement metrics.</li>
-</ul>
-
-<h3>Google Tag Manager</h3>
-
-<ul>
-<li>Implemented centralized tracking using GTM.</li>
-<li>Connected GA4, Microsoft Clarity, and other tracking tools.</li>
-<li>Configured event tracking such as lead form submissions.</li>
-<li>Reduced dependency on multiple script integrations.</li>
-</ul>
-
-<h3>Microsoft Clarity & CRO</h3>
-
-<ul>
-<li>Analyzed user behavior through session recordings and heatmaps.</li>
-<li>Identified areas where users lost interest or dropped off.</li>
-<li>Optimized page layout and content placement based on user interaction.</li>
-<li>Improved user experience through data-driven CRO improvements.</li>
-</ul>
-
-</div>
-
-<!-- RIGHT IMAGES -->
-
-<div class="analytics-images">
-
-<img src="https://res.cloudinary.com/dm0ir0sw1/image/upload/v1773825957/ga4_qzrpma.png" alt="Google Analytics Dashboard">
-
-<img src="https://res.cloudinary.com/dm0ir0sw1/image/upload/v1773825947/tag_manager_m0rjh1.png" alt="Google Tag Manager Setup">
-
-<img src="https://res.cloudinary.com/dm0ir0sw1/image/upload/v1773825936/ms_clarity_z5wmat.png" alt="Microsoft Clarity Heatmap">
-
-</div>
-
-</div>
-
-</div>
-
+  <div class="container">
+    <span class="section-label">Data &amp; Insights</span>
+    <h1 class="analytics-title">ANALYTICS &amp; CONVERSION OPTIMIZATION</h1>
+    <div class="analytics-container">
+      <div class="analytics-content reveal">
+        <h2>Website Analytics &amp; User Behavior Tracking</h2>
+        <p>Implemented analytics tools to track website performance, understand user behavior, and optimize marketing campaigns. The goal was to use data-driven insights to improve targeting, user experience, and conversion rates.</p>
+        <h3>Google Analytics 4 (GA4)</h3>
+        <ul>
+          <li>Tracked website users, sessions, and traffic sources.</li>
+          <li>Analyzed audience demographics such as device type, location, and interests.</li>
+          <li>Used audience insights to refine targeting for advertising campaigns.</li>
+          <li>Monitored campaign performance and engagement metrics.</li>
+        </ul>
+        <h3>Google Tag Manager</h3>
+        <ul>
+          <li>Implemented centralized tracking using GTM.</li>
+          <li>Connected GA4, Microsoft Clarity, and other tracking tools.</li>
+          <li>Configured event tracking such as lead form submissions.</li>
+          <li>Reduced dependency on multiple script integrations.</li>
+        </ul>
+        <h3>Microsoft Clarity &amp; CRO</h3>
+        <ul>
+          <li>Analyzed user behavior through session recordings and heatmaps.</li>
+          <li>Identified areas where users lost interest or dropped off.</li>
+          <li>Optimized page layout and content placement based on user interaction.</li>
+          <li>Improved user experience through data-driven CRO improvements.</li>
+        </ul>
+      </div>
+      <div class="analytics-images reveal">
+        <img src="https://res.cloudinary.com/dm0ir0sw1/image/upload/v1773825957/ga4_qzrpma.png" alt="Google Analytics Dashboard">
+        <img src="https://res.cloudinary.com/dm0ir0sw1/image/upload/v1773825947/tag_manager_m0rjh1.png" alt="Google Tag Manager Setup">
+        <img src="https://res.cloudinary.com/dm0ir0sw1/image/upload/v1773825936/ms_clarity_z5wmat.png" alt="Microsoft Clarity Heatmap">
+      </div>
+    </div>
+  </div>
 </section>
+
+<div class="section-divider"></div>
+
+<!-- ── Video Section ─────────────────────────────────────── -->
 <section class="video-section">
-
-<div class="container">
-
-<h1 class="video-title">VIDEO CONTENT & CREATIVE WORK</h1>
-
-<p class="video-description">
-Created promotional and engagement-driven video content for social media marketing
-and advertising campaigns. These videos were used for brand awareness,
-engagement, and paid marketing campaigns across multiple platforms.
-</p>
-
-<div class="video-grid">
-
-<iframe src="https://www.youtube.com/embed/fhIZbFET5zE"
-title="Video 1" frameborder="0"
-allowfullscreen></iframe>
-
-<iframe src="https://www.youtube.com/embed/T_oQLA_OzoY"
-title="Video 2" frameborder="0"
-allowfullscreen></iframe>
-
-<iframe src="https://www.youtube.com/embed/UpalNIOPocM"
-title="Short 1" frameborder="0"
-allowfullscreen></iframe>
-
-<iframe src="https://www.youtube.com/embed/GHR43THgB0s"
-title="Short 2" frameborder="0"
-allowfullscreen></iframe>
-
-<iframe src="https://www.youtube.com/embed/z8WRJOXWB4E"
-title="Short 3" frameborder="0"
-allowfullscreen></iframe>
-
-<iframe src="https://www.youtube.com/embed/JIiMNMjuyy4"
-title="Short 4" frameborder="0"
-allowfullscreen></iframe>
-
-<iframe src="https://www.youtube.com/embed/WvBEbVmB2kc"
-title="Short 5" frameborder="0"
-allowfullscreen></iframe>
-
-<iframe src="https://www.youtube.com/embed/HgawyaEmdQI"
-title="Short 6" frameborder="0"
-allowfullscreen></iframe>
-
-</div>
-
-</div>
-
+  <div class="container">
+    <span class="section-label">Creative Work</span>
+    <h1 class="video-title">VIDEO CONTENT &amp; CREATIVE WORK</h1>
+    <p class="video-description">Created promotional and engagement-driven video content for social media marketing and advertising campaigns. These videos were used for brand awareness, engagement, and paid marketing campaigns across multiple platforms.</p>
+    <div class="video-grid reveal">
+      <iframe src="https://www.youtube.com/embed/fhIZbFET5zE" title="Video 1" frameborder="0" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/T_oQLA_OzoY" title="Video 2" frameborder="0" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/UpalNIOPocM" title="Short 1" frameborder="0" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/GHR43THgB0s" title="Short 2" frameborder="0" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/z8WRJOXWB4E" title="Short 3" frameborder="0" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/JIiMNMjuyy4" title="Short 4" frameborder="0" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/WvBEbVmB2kc" title="Short 5" frameborder="0" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/HgawyaEmdQI" title="Short 6" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </div>
 </section>
 
-
+<!-- ── Footer ────────────────────────────────────────────── -->
 <footer class="footer">
-
-<div class="footer-container">
-
-<div class="footer-left">
-<h2>Kella Venkatesh</h2>
-<p>Digital Marketing & Web Development Portfolio</p>
-</div>
-
-<div class="footer-middle">
-<h3>Contact</h3>
-<p>Email: venkateshkella9@gmail.com</p>
-<p>Phone: +91 6303582297</p>
-</div>
-
-<div class="footer-right">
-<h3>Connect</h3>
-
-<a href="https://www.linkedin.com/in/kella-venkatesh-marketing/" target="_blank">LinkedIn</a><br>
-
-</div>
-
-</div>
-
-<p class="footer-bottom">
-© 2026 Your Name. All rights reserved.
-</p>
-
+  <div class="footer-container">
+    <div class="footer-left">
+      <h2>Kella Venkatesh</h2>
+      <p>Digital Marketing &amp; Web Development Portfolio</p>
+    </div>
+    <div class="footer-middle">
+      <h3>Contact</h3>
+      <p>Email: venkateshkella9@gmail.com</p>
+      <p>Phone: +91 6303582297</p>
+    </div>
+    <div class="footer-right">
+      <h3>Connect</h3>
+      <a href="https://www.linkedin.com/in/kella-venkatesh-marketing/" target="_blank">LinkedIn ↗</a>
+    </div>
+  </div>
+  <p class="footer-bottom">© 2026 Kella Venkatesh. All rights reserved.</p>
 </footer>
+
+<!-- ── JS: Sticky header shadow + scroll reveal ──────────── -->
+<script>
+  // Sticky header shadow on scroll
+  const header = document.getElementById('main-header');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 20);
+  });
+
+  // Scroll reveal
+  const revealEls = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          entry.target.classList.add('visible');
+        }, i * 80);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  revealEls.forEach(el => observer.observe(el));
+</script>
+
 </body>
-</html>                 
+</html>             
