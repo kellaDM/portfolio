@@ -333,6 +333,60 @@ ul { list-style: none; }
 }
 
 /* ─── About Section ──────────────────────────────────────── */
+.about-section { background: var(--white); }
+.about-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 80px;
+  padding: 100px 0;
+}
+.about-text { width: 52%; }
+.about-text h1 {
+  font-family: var(--font-display);
+  font-size: 64px;
+  letter-spacing: 2px;
+  margin-bottom: 28px;
+  position: relative;
+  display: inline-block;
+}
+.about-text h1::after {
+  content: '';
+  position: absolute;
+  bottom: -8px; left: 0;
+  width: 60px; height: 4px;
+  background: var(--yellow);
+  border-radius: 2px;
+  transition: width 0.5s ease;
+}
+.about-text:hover h1::after { width: 100%; }
+.about-text p {
+  font-size: 18px;
+  line-height: 1.8;
+  color: var(--gray-600);
+  margin-bottom: 20px;
+}
+ 
+.about-image { width: 40%; display: flex; justify-content: center; }
+.image-circle {
+  width: 360px; height: 360px;
+  border-radius: 50%;
+  border: 6px solid var(--yellow);
+  overflow: hidden;
+  box-shadow: 0 0 0 12px var(--yellow-pale), var(--shadow-lg);
+  transition: box-shadow var(--transition), transform var(--transition);
+}
+.image-circle:hover {
+  box-shadow: 0 0 0 16px var(--yellow-pale), var(--shadow-yellow);
+  transform: scale(1.03);
+}
+.image-circle img {
+  width: 110%; height: 120%;
+  margin-right: 15%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+.image-circle:hover img { transform: scale(1.05); }
 /* Education Section */
 .education-section{
   background:#ffffff;
