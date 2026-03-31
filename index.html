@@ -596,6 +596,131 @@ ul { list-style: none; }
   background: var(--gray-100);
 }
 
+
+/* H2 - Section Heading */
+h2 {
+  font-family: var(--font-display);
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+
+/* H3 - Card Heading */
+h3 {
+  font-family: var(--font-display);
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
+/* Paragraph */
+p {
+  font-family: var(--font-body);
+  font-size: 18px;
+  line-height: 1.6;
+  color: #555;
+}
+
+
+@media (max-width: 600px) {
+  h2 {
+    font-size: 32px;
+  }
+
+  h3 {
+    font-size: 18px;
+  }
+
+  p {
+    font-size: 16px;
+  }
+}
+
+
+
+/* tools Section */
+.tools-section {
+  padding: 60px 10%;
+  background: #ffffff;
+  color: #111;
+  text-align: center;
+}
+
+.tools-section h2 {
+  font-size: 32px;
+  margin-bottom: 40px;
+  color: #111;
+}
+
+/* Grid Layout - 4 cards per row */
+.tools-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+}
+
+/* Card Design */
+.tool-card {
+  background: #fff;
+  border-radius: 15px;
+  padding: 25px;
+  border: 2px solid #f4c430;
+  transition: all 0.3s ease;
+}
+
+/* Hover Effect */
+.tool-card:hover {
+  transform: translateY(-6px);
+  border-color: #ffcc00;
+  box-shadow: 0 10px 25px rgba(255, 204, 0, 0.4);
+}
+
+/* Heading */
+.tool-card h3 {
+  margin-bottom: 18px;
+  font-size: 18px;
+  color: #222;
+}
+
+/* Logos Container */
+.logos {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+/* Bigger Logos */
+.logos img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+/* Logo Hover */
+.logos img:hover {
+  transform: scale(1.15);
+}
+
+/* Description */
+.tool-card p {
+  font-size: 13px;
+  color: #555;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .tools-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .tools-container {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* ─── Project Section ────────────────────────────────────── */
 .project-section { background: var(--white); padding: 100px 0; }
 .headingh1 {
@@ -1256,6 +1381,93 @@ ul { list-style: none; }
         <div class="skill-name">WEB DESIGNING</div>
       </div>
     </div>
+  </div>
+</section>
+
+<section class="tools-section">
+  <h2>Digital Marketing Tools I Use</h2>
+
+  <div class="tools-container">
+
+    <!-- SEO -->
+    <div class="tool-card">
+      <h3>SEO Tools</h3>
+      <div class="logos">
+        <img src="https://res.cloudinary.com/dm0ir0sw1/image/upload/v1774933961/screaming_frog_seo_spider_macos_bigsur_icon_189769_z6pwt8.png">
+        <img src="https://res.cloudinary.com/dm0ir0sw1/image/upload/v1774933975/semrush-Logo_omyvts.png">
+        <img src="https://res.cloudinary.com/dm0ir0sw1/image/upload/v1774933997/ubersuggest_uhbqjx.png">
+      </div>
+      <p>Keyword research & ranking improvement</p>
+    </div>
+
+    <!-- Content -->
+    <div class="tool-card">
+      <h3>Content Creation & Design</h3>
+      <div class="logos">
+        <img src="https://res.cloudinary.com/dm0ir0sw1/image/upload/v1773822804/canva_new_logo_ildpi5.png">
+        <img src="https://res.cloudinary.com/dm0ir0sw1/image/upload/v1774933863/capcut-logo-square-rounded-capcut-logo-capcut-logo-free-download-free-png_spinzu.png">
+      </div>
+      <p>Designing creatives & video content</p>
+    </div>
+
+    <!-- Website -->
+    <div class="tool-card">
+      <h3>Website & CMS</h3>
+      <div class="logos">
+        <img src="https://res.cloudinary.com/dm0ir0sw1/image/upload/v1773822810/Wordpress_Blue_logo_k20x28.png">
+      </div>
+      <p>Building and managing websites</p>
+    </div>
+
+    <!-- Analytics -->
+    <div class="tool-card">
+      <h3>Analytics & Tracking</h3>
+      <div class="logos">
+        <img src="https://res.cloudinary.com/dm0ir0sw1/image/upload/v1774933946/Logo_Google_Analytics_dpa4fj.png">
+        <img src="https://res.cloudinary.com/dm0ir0sw1/image/upload/v1774933894/logo-microsoft-clarity-removebg-preview_cxzwpk.png">
+        <img src="https://res.cloudinary.com/dm0ir0sw1/image/upload/v1774933906/google-tag-manager-logo_nm9dwn.png">
+      </div>
+      <p>Tracking user behavior, events & conversions</p>
+    </div>
+
+    <!-- Social -->
+    <div class="tool-card">
+      <h3>Social Media Management</h3>
+      <div class="logos">
+        <img src="https://res.cloudinary.com/dm0ir0sw1/image/upload/v1774933920/buffer-logo-png_seeklogo-482245_kfn63x.png">
+      </div>
+      <p>Scheduling and managing posts</p>
+    </div>
+
+    <!-- Ads -->
+    <div class="tool-card">
+      <h3>Advertising Platforms</h3>
+      <div class="logos">
+        <img src="https://res.cloudinary.com/dm0ir0sw1/image/upload/v1773822805/google_ads_gj9fts.png">
+        <img src="https://res.cloudinary.com/dm0ir0sw1/image/upload/v1773822805/Meta-Logo_ymn1y5.png">
+      </div>
+      <p>Running paid ad campaigns</p>
+    </div>
+
+    <!-- CRM -->
+    <div class="tool-card">
+      <h3>Marketing Automation & CRM</h3>
+      <div class="logos">
+        <img src="https://res.cloudinary.com/dm0ir0sw1/image/upload/v1774933839/HubSpot_Logo.svg_dbaxgj.png">
+        <img src="https://res.cloudinary.com/dm0ir0sw1/image/upload/v1774933882/Mailchimp-logo_z6fth3.png">
+      </div>
+      <p>Lead management & email automation</p>
+    </div>
+
+    <!-- Webmaster -->
+    <div class="tool-card">
+      <h3>Webmaster Tools</h3>
+      <div class="logos">
+        <img src="https://res.cloudinary.com/dm0ir0sw1/image/upload/v1774933985/png-clipart-google-logo-product-sans-business-google-search-console-text-logo-thumbnail-removebg-preview_ghraxt.png">
+      </div>
+      <p>Monitoring search performance</p>
+    </div>
+
   </div>
 </section>
 
