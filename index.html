@@ -262,7 +262,9 @@ ul { list-style: none; }
 
 /* Tags */
 .tag {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
   background: var(--black);
   color: var(--white);
   border: none;
@@ -273,8 +275,8 @@ ul { list-style: none; }
   letter-spacing: 0.04em;
   cursor: default;
   transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
-  margin: 8px;
 }
+  
 .tag:hover {
   background: var(--yellow);
   color: var(--black);
