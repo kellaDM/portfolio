@@ -1698,7 +1698,7 @@ p {
 
 <!-- ── JS: Sticky header shadow + scroll reveal ──────────── -->
 <script>
-  // Sticky header shadow on scroll
+  // Sticky header shadow
   const header = document.getElementById('main-header');
   window.addEventListener('scroll', () => {
     header.classList.toggle('scrolled', window.scrollY > 20);
@@ -1716,53 +1716,53 @@ p {
       }
     });
   }, { threshold: 0.12 });
+
   revealEls.forEach(el => observer.observe(el));
-</script>
 
-  <!-- countnumber 7+months-->
-  <script>
-function animateCounter(el, target) {
-  let count = 0;
-  const speed = 120; // lower = faster
+  // -------------------------
+  // HELLO TEXT CHANGE
+  // -------------------------
+  const greetings = ["Hello", "నమస్కారం", "नमस्कार"];
+  let index = 0;
 
-  const interval = setInterval(() => {
-    count++;
-    el.textContent = count + (count === target ? "+" : "");
+  const greetingEl = document.getElementById("greeting-text");
 
-    if (count >= target) {
-      clearInterval(interval);
-      el.textContent = target + "+";
-    }
-  }, speed);
-}
-    
-<script>
-const greetings = ["Hello", "నమస్కారం", "नमस्कार"]; 
-let index = 0;
+  setInterval(() => {
+    index = (index + 1) % greetings.length;
+    greetingEl.textContent = greetings[index];
+  }, 2000);
 
-const el = document.getElementById("greeting-text");
+  // -------------------------
+  // COUNTER ANIMATION
+  // -------------------------
+  function animateCounter(el, target) {
+    let count = 0;
+    const speed = 120;
 
-setInterval(() => {
-  index = (index + 1) % greetings.length;
-  el.textContent = greetings[index];
-}, 2000);
-</script>
+    const interval = setInterval(() => {
+      count++;
+      el.textContent = count + (count === target ? "+" : "");
 
+      if (count >= target) {
+        clearInterval(interval);
+        el.textContent = target + "+";
+      }
+    }, speed);
+  }
 
-<script>
-const counter = document.querySelector(".exp-number");
+  const counter = document.querySelector(".exp-number");
 
-const counterObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      const target = parseInt(counter.dataset.target);
-      animateCounter(counter, target);
-      counterObserver.unobserve(counter);
-    }
-  });
-}, { threshold: 0.6 });
+  const counterObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const target = parseInt(counter.dataset.target);
+        animateCounter(counter, target);
+        counterObserver.unobserve(counter);
+      }
+    });
+  }, { threshold: 0.6 });
 
-counterObserver.observe(counter);
+  counterObserver.observe(counter);
 </script>
 
 </body>
