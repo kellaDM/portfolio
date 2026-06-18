@@ -1254,10 +1254,10 @@ p {
       </div>
       
       <div class="right-content">
-        <div class="experience-box">
-    <div class="exp-number">7+</div>
-    <div class="exp-text">months experience</div>
-  </div>
+        <div class="experience-box reveal">
+  <div class="exp-number" data-target="7">0+</div>
+  <div class="exp-text">months experience</div>
+</div>
         <button class="tag">Social media</button>
         <button class="tag ads">Ads</button>
         <button class="tag seo">SEO</button>
@@ -1717,6 +1717,39 @@ p {
     });
   }, { threshold: 0.12 });
   revealEls.forEach(el => observer.observe(el));
+</script>
+
+  <!-- countnumber 7+months-->
+  <script>
+function animateCounter(el, target) {
+  let count = 0;
+  const speed = 120; // lower = faster
+
+  const interval = setInterval(() => {
+    count++;
+    el.textContent = count + (count === target ? "+" : "");
+
+    if (count >= target) {
+      clearInterval(interval);
+      el.textContent = target + "+";
+    }
+  }, speed);
+}
+
+// trigger only when visible
+const counter = document.querySelector(".exp-number");
+
+const counterObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const target = parseInt(counter.dataset.target);
+      animateCounter(counter, target);
+      counterObserver.unobserve(counter);
+    }
+  });
+}, { threshold: 0.6 });
+
+counterObserver.observe(counter);
 </script>
 
 </body>
