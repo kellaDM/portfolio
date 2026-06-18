@@ -1235,7 +1235,7 @@ p {
 <section class="hero" id="home">
   <div class="container">
     <div class="hero-top">
-      <span class="hello-btn">Hello</span>
+      <span class="hello-btn" id="greeting-text">Hello</span>
       <h2>I'M <span class="name">VENKATESH</span> 👋</h2>
       <h1 class="title">DIGITAL MARKETER</h1>
     </div>
@@ -1735,7 +1735,20 @@ function animateCounter(el, target) {
     }
   }, speed);
 }
+    
+<script>
+const greetings = ["Hello", "నమస్కారం", "नमस्कार"]; 
+let index = 0;
 
+const el = document.getElementById("greeting-text");
+
+setInterval(() => {
+  index = (index + 1) % greetings.length;
+  el.textContent = greetings[index];
+}, 2000);
+</script>
+
+  
 // trigger only when visible
 const counter = document.querySelector(".exp-number");
 
